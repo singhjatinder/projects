@@ -1,0 +1,6 @@
+jays-web-app/web-app/node_modules
+jays-web-app/database
+/API/.env
+/API/node_modules
+/API/requests.rest
+/API/database/credentials.js

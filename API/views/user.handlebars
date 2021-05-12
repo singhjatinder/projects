@@ -1,0 +1,19 @@
+{{> nav}}
+<h2>User Account</h2>
+<table class="table table-dark" style="width: 500px;">
+    <tr>
+        <th scope="col">First</th>
+        <td>{{user.fName}}</td>
+    </tr>
+    <tr>
+        <th scope="col">Last</th>
+        <td>{{user.lName}}</td>
+    </tr>
+    <tr>
+        <th scope="col">Email</th>
+        <td>{{user.email}}</td>
+    </tr>
+</table>
+<form action="/logout?_method=DELETE" method="post">
+    <button type="submit">Log out</button>
+</form>

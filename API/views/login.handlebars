@@ -1,0 +1,26 @@
+{{#if msg}}
+    <center>
+    <div class="alert alert-success">
+    <strong>{{msg}}</strong>
+    </div>
+    </center>
+    {{/if}}
+{{#if messages.error}}
+    <center>
+    <div class="alert alert-danger">
+        <strong>{{messages.error}}</strong>
+    </div>
+    </center>
+{{/if}}
+<div class="container2">
+    <h1>Login</h1>
+    <form action="/login" method="post">
+        <label class="col-1" for="email">Email</label>
+        <input class="input" id="email" type="email" name="email" required placeholder="Enter Email">
+        <label class="col-1" for="pwd">Password</label>
+        <input class="input" id="pwd" type="password" name="pwd" required placeholder="Enter Password">
+        <input class="input btn2 btn2-primary" type="submit" value="Login">
+    </form>
+    <a href="/register"><button class="input btn2 btn2-secondary">Register</button></a>
+    <a href="/reset">Reset Password</a>
+</div>

@@ -1,0 +1,45 @@
+<div class="cont">
+  <h2>{{title}}</h2>
+  <h2>{{game}}</h2>
+  <p class="blackTeam"*ngIf="team1turn && !team1won && !team2won"><---------- Team 1's Turn-------------></p>
+  <p class="redTeam" *ngIf="team2turn && !team1won && !team2won"> <---------- Team 2's Turn-------------></p>
+  <p class="blackTeam" *ngIf="team1won"> Team 1 won</p>
+  <p class="redTeam" *ngIf="team2won"> Team 2 won</p>
+  <div class="row">
+    <svg (mouseup)="drop($event)" [attr.height]="board" [attr.width]="board">
+      <rect *ngFor="let rec of posCords" [attr.x]="rec.x" [attr.y]="rec.y" [attr.width]="eachBox" [attr.height]="eachBox" [attr.fill]="rec.color"></rect>
+      <circle draggable="true" (mousedown)="drag($event)" *ngFor="let rec of team1" [attr.id]="rec.id" [attr.cx]="rec.x" [attr.cy]="rec.y" [attr.r]="(eachBox/2) *.90" fill="black"></circle>
+      <circle draggable="true" (mousedown)="drag($event)" *ngFor="let rec of team2"  [attr.id]="rec.id" [attr.cx]="rec.x" [attr.cy]="rec.y" [attr.r]="(eachBox/2) *.90" fill="firebrick"></circle>
+      <circle draggable="true" *ngFor="let rec of emptyCords" (mouseover)="dragOver($event)" (mouseleave)="dragLeave()" (mouseup)="drop($event)" [attr.id]="rec.id" [attr.cx]="rec.x" [attr.cy]="rec.y" [attr.r]="(eachBox/2)" fill="chocolate"></circle>
+
+      <circle draggable="true" (mousedown)="drag($event)" *ngFor="let rec of team1Kings" [attr.id]="rec.id" [attr.cx]="rec.x" [attr.cy]="rec.y" [attr.r]="(eachBox/2) *.50" fill="gold"></circle>
+      <circle draggable="true" (mousedown)="drag($event)" *ngFor="let rec of team2Kings" [attr.id]="rec.id" [attr.cx]="rec.x" [attr.cy]="rec.y" [attr.r]="(eachBox/2) *.50" fill="gold"></circle>
+
+    </svg>
+    <div>
+      <p class="text-danger">****Changing values will restart the game****</p>
+      <div id="g1">
+      <p> Board Size:
+        <input type="radio" [(ngModel)]="board" value="800" name="b" [checked]="board==='800'" (click)="restart()"> 800px
+        <input type="radio" [(ngModel)]="board" value="1000" name="b" [checked]="board==='1000'" (click)="restart()"> 1000px
+        <input type="radio" [(ngModel)]="board" value="1200" name="b" [checked]="board==='1200'" (click)="restart()"> 1200px
+      </p>
+      </div>
+
+      <div id="g2">
+      <p> Number of Rows:
+        <input type="radio" [(ngModel)]="numOfRows" value="8" name="r"  [checked]="numOfRows==='8'" (click)="restart()"> 8x8
+        <input type="radio" [(ngModel)]="numOfRows" value="10" name="r" [checked]="numOfRows==='10'" (click)="restart()"> 10x10
+        <input type="radio" [(ngModel)]="numOfRows" value="16" name="r" [checked]="numOfRows==='16'"  (click)="restart()"> 16x16
+      </p>
+      </div>
+      <h3>New Game/restart game</h3>
+      <button class="btn btn-primary" type="button" (click)="restart()">Restart the game/New Game</button> <span class="text-danger"> ***This will clear any games saved locally***</span>
+      <br>
+      <h3>Save/delete Local Storage</h3>
+      <button class="btn btn-success" type="button" (click)="saveLocal()">Save Local</button>
+      <button class="btn btn-danger" type="button" (click)="clearLocal()">Clear Local</button>
+    </div>
+  </div>
+
+</div>

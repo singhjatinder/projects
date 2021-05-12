@@ -1,0 +1,42 @@
+<div>
+    <form method="post" action="/order/search">
+        <input type="text" name="search">
+        <button class="btn btn-success" type="submit">Search</button>
+        <button class="btn btn-primary" type="reset" onclick="clearSearchOrder();">Clear Search</button>
+    </form>
+    <h2>Please enter quantity for the product you would like to order. Otherwise, leave it empty.</h2>
+    <form method="post" action="/order/confirm">
+    <div class="table-responsive">
+        <table class="table table-condensed">
+            {{#if data}}
+                <thead>
+                <tr>
+                    <th>Enter Quantity</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                </tr>
+                </thead>
+            {{else}}
+                <tr><td colspan="3">No Products found ... Add One!</td></tr>
+            {{/if}}
+            <tbody>
+            {{#each data}}
+                <tr>
+                    <td><input type="number" name="quantity"></td>
+                    <td>{{this.name}}</td>
+                    <td>{{this.description}}</td>
+                    <td>${{this.price}}</td>
+                </tr>
+                <input type="hidden" name="id" value="{{this.id}}">
+            {{/each}}
+            </tbody>
+            <tfooter>
+                <tr><td>
+                    <button class="btn btn-primary" type="submit">Place Order</button>
+                </td></tr>
+            </tfooter>
+        </table>
+    </div>
+    </form>
+</div>

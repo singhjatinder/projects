@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/recipes">WannaBe Cookk</a>
+    <i class="fas fa-thumbtack"></i>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav links">
+            <li class="nav-item {{#if home}}active{{/if}}">
+                <a class="nav-link" href="/recipes">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item {{#if create}}active{{/if}}">
+                <a class="nav-link" href="/recipes/create">Create Recipe</a>
+            </li>
+<!--            <li class="nav-item {{#if utensils}}active{{/if}}">-->
+<!--                <a class="nav-link" href="/recipes/utensils">Utensils</a>-->
+<!--            </li>-->
+        </ul>
+    </div>
+
+    <div class="nav-item dropdown ml-auto">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">My Account</a>
+        <div class="dropdown-menu" style="display: block">
+            <a href="/user" class="dropdown-item">My Account</a>
+            <form action="/logout?_method=DELETE" method="post">
+                <button class="dropdown-item" type="submit">Log out</button>
+            </form>
+        </div>
+    </div>
+</nav>

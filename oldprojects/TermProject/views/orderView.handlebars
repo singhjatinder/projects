@@ -1,0 +1,43 @@
+<div>
+    <h3>Name: {{name}}</h3>
+    {{#if data}}
+    {{#each data}}
+        <div class="table-responsive" style="width: 500px; border: 1px solid black">
+            <table class="table table-condensed">
+                    <thead>
+                    <tr>
+                        <td colspan="4">Order ID: {{this.id}}</td>
+                    </tr>
+                    <tr>
+                        <th style="width: 25%">Item Name</th>
+                        <th style="width: 10%">Price</th>
+                        <th style="width: 10%">Quantity</th>
+                        <th style="width: 10%">Total</th>
+                    </tr>
+                    </thead>
+                <tbody>
+                    {{#each this.products}}
+                    <tr>
+                        <td>{{this.productName}}</td>
+                        <td>${{this.price}}</td>
+                        <td>{{this.quantity}}</td>
+                        <td>${{this.total}}</td>
+                    </tr>
+                {{/each}}
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Order Total:</td>
+                    <td>${{this.totalOrder}}</td>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+        <br>
+    {{/each}}
+    {{else}}
+        <h2>No Orders found for this customer</h2>
+    {{/if}}
+</div>

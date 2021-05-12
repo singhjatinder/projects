@@ -1,0 +1,67 @@
+<div>
+    {{#if invalidOrderData}}
+    <h1>PLEASE RE-ORDER THE ITEMS BELOW with quantity less than whats available.</h1>
+
+    <div class="table-responsive">
+        <table class="table table-condensed">
+            <thead>
+            <tr>
+                <th>Item Name</th>
+                <th>Price</th>
+                <th>Ordered Quantity</th>
+                <th>Available Quantity</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each invalidOrderData}}
+                <tr>
+                    <td>{{this.item.productName}}</td>
+                    <td>${{this.item.price}}</td>
+                    <td>{{this.item.quantity}}</td>
+                    <td>{{this.available}}</td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+        <button class="btn btn-success" onclick="order();">Order Items Again</button>
+    </div>
+    {{/if}}
+    {{#if data}}
+        <h1>ITEMS ORDERED</h1>
+        {{#each data}}
+            <p>Order ID: {{this.id}}</p>
+            <div class="table-responsive">
+                <table class="table table-condensed">
+                    <thead>
+                    <tr>
+                        <th>Item Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{#each this.products}}
+                        <tr>
+                            <td>{{this.productName}}</td>
+                            <td>${{this.price}}</td>
+                            <td>{{this.quantity}}</td>
+                            <td>${{this.total}}</td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>Order Total:</td>
+                        <td>${{this.totalOrder}}</td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        {{/each}}
+    {{else}}
+        <h2>No Items ordered...</h2>
+    {{/if}}
+</div>

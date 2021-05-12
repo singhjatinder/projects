@@ -1,0 +1,80 @@
+{{> nav home=true}}
+
+{{#if msg}}
+    <p class="text-success">{{msg}}</p>
+{{/if}}
+
+{{#each recipes}}
+    <details>
+        <summary class="sum-container">
+            <div class="sum-left">
+                <img width="200" height="200" src="recipes/image/{{picture}}" alt="HELLO">
+                <div class="sum-item-list">
+                    <p class="sum-items">Recipe Name: {{name}}</p>
+                    <p class="sum-items">Prep Time: {{prepTime}}</p>
+                    <p class="sum-items">Total Time: {{totalTime}}</p>
+                </div>
+            </div>
+            <div class="sum-options">
+                <form action="/recipes/edit/{{_id}}" method="get">
+                    <input class="btn btn-success btn-lg" type="submit" class="sum-option" value=" Edit ">
+                </form>
+                <form action="/recipes/delete/{{_id}}" method="post">
+                    <input class="btn btn-danger btn-lg" type="submit" class="sum-option" value="Delete">
+                </form>
+            </div>
+        </summary>
+        <p>
+        <h3>Utensils</h3>
+        <ul>
+            {{#each utensils}}
+                <li>Name: {{utensilName}} Qty: {{utensilQuantity}}</li>
+            {{/each}}
+        </ul>
+        <h3>Ingredients</h3>
+        <ul>
+            {{#each ingredients}}
+                <li>Name: {{ingredientsName}} Qty: {{ingredientsQuantity}}</li>
+            {{/each}}
+        </ul>
+        <h3>Steps</h3>
+        <ol>
+            {{#each steps}}
+                <li>{{step}} </li>
+                <!--                    <td><img width="100" height="100" src="recipes/image/{{picture}}" alt="HELLO"></td>-->
+            {{/each}}
+        </ol>
+    </details>
+    <!--    <div class="card">-->
+    <!--        <div class="card-header" id="heading{{@index}}">-->
+    <!--            <h5 class="mb-0">-->
+    <!--                <button class="btn btn-link" data-toggle="collapse" data-target="#collapse{{@index}}" aria-expanded="true" aria-controls="collapse{{@index}}">-->
+    <!--                    Recipe Name: {{name}} Prep Time: {{prepTime}} total Time: {{totalTime}}-->
+    <!--                </button>-->
+    <!--            </h5>-->
+    <!--        </div>-->
+    <!--        <div id="collapse{{@index}}" class="collapse" aria-labelledby="heading{{@index}}" data-parent="#accordion">-->
+    <!--            <div class="card-body">-->
+    <!--                <h3>Utensils</h3>-->
+    <!--                <ul>-->
+            <!--                    {{#each utensils}}-->
+    <!--                        <li>Name: {{utensilName}} Qty: {{utensilQuantity}}</li>-->
+            <!--                    {{/each}}-->
+    <!--                </ul>-->
+    <!--                <h3>Ingredients</h3>-->
+    <!--                <ul>-->
+            <!--                    {{#each ingredients}}-->
+    <!--                        <li>Name: {{ingredientsName}} Qty: {{ingredientsQuantity}}</li>-->
+            <!--                    {{/each}}-->
+    <!--                </ul>-->
+    <!--                <h3>Steps</h3>-->
+    <!--                <ol>-->
+            <!--                    {{#each steps}}-->
+    <!--                        <li>{{step}} Picture: {{picture}}</li>-->
+            <!--                    {{/each}}-->
+    <!--                </ol>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
+{{/each}}
+

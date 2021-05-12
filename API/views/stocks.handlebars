@@ -1,0 +1,29 @@
+
+<h1>HI!</h1>
+{{date}} - {{stock}}
+
+<table class="table">
+    <thead>
+        <th>
+            OPEN
+        </th>
+        <th>
+            CLOSE
+        </th>
+        <th>
+            %Change
+        </th>
+    </thead>
+    <tbody>
+        <td>
+            {{opened}}
+        </td>
+        <td>
+            {{closed}}
+        </td>
+        <td>
+            {{difference}}
+        </td>
+    </tbody>
+</table>
+<a href="/slack/stocks?date={{newDate}}&stock={{stock}}"><button class="btn btn-primary">NEXT</button></a>

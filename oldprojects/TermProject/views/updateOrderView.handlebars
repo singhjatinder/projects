@@ -1,0 +1,39 @@
+<div>
+    {{#if data}}
+        {{#each data}}
+            <form method="post" action='/order/update'>
+                <p>Order ID: {{this.id}}</p>
+                <input type="hidden" name="id" value="{{this.id}}">
+                <div class="table-responsive">
+                    <table class="table table-condensed">
+                        <thead>
+                        <tr>
+                            <th>Item Name</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {{#each this.products}}
+                            <tr>
+                                <td>{{this.productName}}</td>
+                                <td>${{this.price}}</td>
+                                <td><input type="text" name="quantity" value="{{this.quantity}}"></td>
+                                <input type="hidden" name="productID" value="{{this.id}}">
+                            </tr>
+                        {{/each}}
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <td colspan="2"></td>
+                            <td><input class="btn btn-success" type="submit" value="Update"></td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </form>
+        {{/each}}
+    {{else}}
+        <h2>No Orders found for this customer</h2>
+    {{/if}}
+</div>

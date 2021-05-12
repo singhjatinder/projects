@@ -1,0 +1,43 @@
+.sum-container {
+    width: 75%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-self: center;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: gray;
+    color: white;
+    margin: 15px 0;
+    border-radius: 10px;
+    font-family: "Open Sans", sans-serif;
+}
+.sum-left{
+    display: flex;
+    flex-flow: row wrap;
+    justify-self: center;
+}
+
+.sum-items {
+    display: block;
+    padding-left: 15px;
+}
+
+.sum-options {
+    color: white;
+}
+
+.sum-option {
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.sum-option:hover {
+    color: black;
+    background-color: white;
+    text-decoration: none;
+}
+
+details summary::-webkit-details-marker {
+    display:none;
+}

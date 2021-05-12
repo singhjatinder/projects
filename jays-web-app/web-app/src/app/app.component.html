@@ -1,0 +1,33 @@
+<nav>
+  <div class="nav">
+    <p>Jatinder SINGH</p>
+    <a class="icon" href="javascript:void(0);" (click)="myFunction()" >
+      <i class="fa fa-bars fa-2x"></i>
+    </a>
+  </div>
+  <ul class="mobile-nav">
+    <li [ngClass]="status ? 'myLinksActive' : 'myLinks'" (click)="myFunction()"><a href="#home">Home</a></li>
+    <li [ngClass]="status ? 'myLinksActive' : 'myLinks'" (click)="myFunction()"><a href="#resume">Resume</a></li>
+    <li [ngClass]="status ? 'myLinksActive' : 'myLinks'" (click)="myFunction()"><a href="#contact">Contact Me</a></li>
+  </ul>
+</nav>
+<div class="container" id="home">
+  <img id="background" src="assets/images/background-pic.jpeg" alt="Background PIC">
+  <div class="row-wrap">
+    <img id="profile" src="assets/images/20200906_215034.jpg" alt="profile pic">
+    <section>
+      <h1>Jatinder Singh</h1>
+      <h2>Full-stack Developer</h2>
+      <section>
+      <a href="https://github.com/singhjatinder/" target="_blank"><img class="icons" src="assets/images/git.png" alt="GIT Profile"></a>
+      <a href="https://www.linkedin.com/in/jatinder-singh-1b9844a3/" target="_blank"><img class="icons" src="assets/images/in.png" alt="LinkedIn Profile"></a>
+      </section>
+      <section>
+        <p>Experienced software professional with 4 years of track record of developing and executing strategies through technical and problem solving skills in lieu of providing support, solutions, and competitive advantage to clients. Highly skilled at creating, implementing and supporting technical strategies that positively impact user experience and improve organizational outcomes. </p>
+      </section>
+      <a href="#resume"><button type="button">Resume</button></a>
+    </section>
+  </div>
+</div>
+<app-resume></app-resume>
+<app-contact></app-contact>

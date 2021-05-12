@@ -1,0 +1,42 @@
+svg{
+  border: 2px solid black;
+}
+
+.dragged {opacity: 0.5}
+
+.over{
+  fill: navajowhite;
+  opacity: 0.5;
+}
+
+.cont {
+  display: flex;
+  flex-flow: column wrap;
+  align-content: center;
+  align-items: center;
+}
+.row{
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.redTeam{
+  color: darkred;
+  font-size: 25px;
+  border: 2px solid darkred;
+  font-weight: bolder;
+}
+
+.blackTeam{
+  color: black;
+  font-size: 25px;
+  border: 2px solid black;
+  font-weight: bolder;
+
+}
+
+button {
+  margin: 10px;
+}
+
+

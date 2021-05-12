@@ -1,0 +1,298 @@
+$primary-background-color: #744847;
+$secondary-background-color: orange;
+$primary-text-color: white;
+$secondary-text-color: #a8644b;
+$third-text-color: #3f63a1;
+
+
+@media (orientation: landscape) {
+
+*{
+  font-family: "Lucida Handwriting","Lucida Console","Monaco";
+}
+
+
+.mobile-nav{
+  display: none;
+}
+
+nav{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  background: $primary-background-color;
+  color: $primary-text-color;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 2;
+  animation: load-nav 600ms ease-in;
+  
+  .nav{
+    a{
+      display: none;
+    }
+  }
+
+  p{
+    font-size: 1.5em;
+    margin-left: 30px;
+    transition: 1s ease;
+  }
+  p:hover {
+    font-size: 2em;
+  }
+
+  ul{
+    display: flex;
+    justify-content: space-between;    
+
+    li{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 20px;
+      border-right: 2px white solid;
+      a{
+        text-decoration: none;
+        color: $primary-text-color;
+        font-size: 1.3em;
+        transition: 1s ease;
+      }
+      a:hover{
+        color: $third-text-color;
+        font-size: 2em;
+      }
+    }
+
+  }
+}
+
+.container{
+    width: 100%;
+    height: 1000px;
+
+  #background {
+    position: absolute;
+    width: 100%;
+    height: 400px;
+    top: 70px;
+    left: 0;
+    z-index: -1;
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
+    animation: load-background 600ms ease-in 600ms forwards;
+    transform: scale(0);
+  }
+
+  div{
+    position: relative;
+    z-index: 1;
+    top: 70px;
+    left: 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 800px;
+    animation: load-background 600ms ease-in 1200ms forwards;
+    transform: scale(0);
+
+    h1, h2{
+      color: $primary-text-color;
+      font-size: 2.3em;
+    }
+
+    #profile{
+      width: 300px;
+      height: 550px;
+      padding-right: 20px;
+
+      transform-origin: center;
+      transform: perspective(600px) rotateY(20deg);
+      transition: 0.5s;
+    }
+
+    #profile:hover {
+      width: 400px;
+      height: 650px;
+      transform: perspective(600px) rotateY(0deg);
+      transition: 0.5s;
+    }
+
+    .icons{
+      width: 40px;
+      height: 40px;
+      margin: 0px 10px;
+    }
+    section{
+      p{
+        padding: 20px;
+        color: $third-text-color;
+        width: 500px;
+        font-size: 1.1em;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      h1:hover, h2:hover, button:hover{
+        font-size: 2.5em;
+        color: $secondary-text-color;
+        transition: 0.5s;
+      }
+      button{
+        border: 2px solid $secondary-text-color;
+        border-radius: 5px;
+        background: $primary-text-color;
+        color: $third-text-color;
+        padding: 10px;
+        font-size: 1.1em;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+      }
+    }
+
+  }
+}
+
+}
+
+@keyframes load-nav {
+  0%{
+    transform: translateY(-100%);
+  }
+  100%{
+    transform: translateY(0);
+  }
+}
+
+@keyframes load-background {
+  0%{
+    transform: translateY(-100%);
+  }
+  100%{
+    transform: translateY(0);
+  }
+}
+
+@media (orientation: portrait) {
+
+  nav{
+    font-family: "Lucida Handwriting","Lucida Console","Monaco";
+    background: $primary-background-color;
+    color: $primary-text-color;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: 2;
+
+
+    .nav {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      p{
+        font-size: 1.3em;
+        margin: 10px;
+        padding: 0;
+      }
+      .icon {
+        display: flex;
+        justify-content: center;
+        margin: 10px;
+        color: $primary-text-color;
+        text-decoration: none;
+      }
+    }
+    .myLinks {
+      display: none;
+    }
+    .myLinksActive{
+        display: flex;
+    }
+    .mobile-nav {
+      background: $primary-background-color;
+      a {
+        width: 100%;
+        font-size: 1.3em;
+        padding: 25px 0;
+        border-bottom: 2px solid $primary-text-color;
+        text-decoration: none;
+        color: $primary-text-color;
+      }
+
+      a:hover {
+        background: $primary-text-color;
+        color: $primary-background-color;
+      }
+    }
+  }
+
+  .container{
+    #background {
+      position: absolute;
+      width: 100%;
+      top: 65px;
+      left: 0;
+      z-index: -1;
+      filter: blur(2px);
+      -webkit-filter: blur(2px);
+    }
+
+    div{
+      position: relative;
+      z-index: 1;
+      top: 100px;
+      left: 0;
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: center;
+      width: 100%;
+      min-height: 800px;
+
+      #profile{
+        width: 260px;
+        height: 500px;
+        display: flex;
+        align-self: center;
+      }
+
+      section{
+
+        h1, h2{
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          color: $primary-background-color;
+          font-size: 2.3em;
+        }
+        .icons{
+          width: 40px;
+          height: 40px;
+          margin: 0px 10px;
+        }
+        section{
+          display: flex;
+          justify-content: center;
+        }
+
+        p{
+          display: flex;
+          justify-content: center;
+          padding: 20px;
+          color: $third-text-color;
+          width: 500px;
+          font-size: 1.1em;
+          min-height: 200px;
+          font-family: Arial, Helvetica, sans-serif;
+        }
+        button{
+          display: none;
+        }
+      }
+
+    }
+  }
+}
+

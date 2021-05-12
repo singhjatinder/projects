@@ -1,0 +1,30 @@
+<div>
+    <form method="post" action="/customers/search">
+        <input type="text" name="search">
+        <button class="btn btn-success" type="submit">Search</button>
+        <button class="btn btn-primary" type="reset" onclick="clearSearchOrder();">Clear Search</button>
+    </form>
+    <div class="table-responsive">
+        <table class="table table-condensed">
+            {{#if data}}
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th></th>
+                </tr>
+                </thead>
+            {{else}}
+                <tr><td colspan="3">No Customers found :(... Add One!</td></tr>
+            {{/if}}
+            <tbody>
+            {{#each data}}
+                <tr>
+                    <td><a href="/customers/orders/{{this.id}}">{{this.name}}</a></td>
+                    <td>{{this.email}}</td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

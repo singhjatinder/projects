@@ -1,0 +1,16 @@
+.links{
+    width: 500px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-evenly;
+    border-left: 1px solid white;
+}
+
+.links li{
+    padding: 0 30px;
+}
+
+.links li:hover{
+    border: 1px solid white;
+    background: gray
+}

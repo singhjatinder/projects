@@ -1,0 +1,22 @@
+{{#if msg}}
+    <center>
+        <div class="alert alert-danger">
+            <strong>{{msg}}</strong>
+        </div>
+    </center>
+{{/if}}
+<div class="container2">
+    <h1>Register</h1>
+    <form id="basic-form" action="/register" method="post">
+        <label for="fName">First Name</label>
+        <input class="input" id="fName" type="text" name="fName" required placeholder="Enter First Name">
+        <label for="lName">Last Name</label>
+        <input class="input" id="lName" type="text" name="lName" required placeholder="Enter Last Name">
+        <label for="email">Email</label>
+        <input class="input" id="email" type="email" name="email" required placeholder="Enter Email">
+        <label for="pwd">Password</label>
+        <input class="input" id="pwd" type="password" name="pwd" required placeholder="Enter Password">
+        <input class="input btn2 btn2-third" type="submit" value="Register">
+    </form>
+    <a href="/login"><button class="btn2 btn2-secondary">Login</button></a>
+</div>

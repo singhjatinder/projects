@@ -1,0 +1,42 @@
+{{> nav create=true}}
+<div class="d-flex flex-xl-column justify-content-center align-items-center ">
+    <form class="col-8" action="/recipes/create" enctype="multipart/form-data" method="post">
+        <h1>Create a Recipe</h1>
+        <div class="form-dark col-12 d-flex flex-column justify-self-center">
+            <div class="d-flex mb-3">
+                <label class="col-1 m-1" for="recipeName">Name:  </label>
+                <input class="form-control" id="recipeName" label="recipeName" name="recipeName"  required type="text" placeholder="Enter Recipe Name">
+                <label class="col-1 m-1"  for="picture1">Picture</label>
+                <input class="form-control border-0" id="picture1" name="picture1"  required accept="image/*" type="file">
+                <br>
+                <label class="col-1 m-1"  for="recipePrepTime">Prep Time: </label>
+                <input class="form-control" id="recipePrepTime" label="recipePrepTime" required name="recipePrepTime" type="number" placeholder="Enter Recipe Prep Time"> <p class="m-1">Mins</p>
+                <label class="col-1 m-1" for="recipeTotalTime">Total Time: </label>
+                <input class="form-control" id="recipeTotalTime" label="recipeTotalTime"  required name="recipeTotalTime" type="number" placeholder="Enter Recipe Total Time"><p class="m-1">Mins</p>
+            </div>
+            <div class="mb-3">
+                <div class="d-flex flex-col justify-content-between">
+                    <h2>Utensils</h2>
+                    <button class="btn btn-success mb-3" type="button" onclick="addUtensil()">Click to Add Utensil</button>
+                </div>
+                {{> utensil}}
+                <div id="addUtensil"></div>
+
+                <div class="d-flex flex-row justify-content-between">
+                    <h2>Ingredients</h2>
+                    <button class="btn btn-success mb-3" type="button" onclick="addIngredients()">Click to Add Ingredients</button>
+                </div>
+                {{> ingredients}}
+                <div id="addIngredients"></div>
+                <div class="d-flex flex-row justify-content-between">
+                    <h2>Steps</h2>
+                    <button class="btn btn-success mb-3" type="button" onclick="addSteps()">Click to Steps</button>
+                </div>
+                {{> steps}}
+                <div id="addSteps"></div>
+                <br>
+                <input class="btn btn-primary" type="submit" value="Create Recipe">
+            </div>
+        </div>
+    </form>
+</div>

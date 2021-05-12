@@ -1,0 +1,70 @@
+{{> nav}}
+<div class="d-flex flex-xl-column justify-content-center align-items-center ">
+    <form class="col-8" action="/recipes/save" method="post">
+        <h1>Edit Recipe</h1>
+        <div class="form-dark col-12 d-flex flex-column justify-self-center">
+            <div class="d-flex mb-3">
+                <label class="col-1 m-1" for="recipeName">Name:  </label>
+                <input class="form-control" id="recipeName" label="recipeName" name="recipeName"  required type="text" placeholder="Enter Recipe Name" value="{{recipe.name}}">
+<!--                <label class="col-1 m-1"  for="picture1">Picture</label>-->
+<!--                <input class="form-control border-0" id="picture1" name="picture1"  required accept="image/*" type="file">-->
+                <br>
+                <label class="col-1 m-1"  for="recipePrepTime">Prep Time: </label>
+                <input class="form-control" id="recipePrepTime" label="recipePrepTime" required name="recipePrepTime" type="number" placeholder="Enter Recipe Prep Time" value="{{recipe.prepTime}}"> <p class="m-1">Mins</p>
+                <label class="col-1 m-1" for="recipeTotalTime">Total Time: </label>
+                <input class="form-control" id="recipeTotalTime" label="recipeTotalTime"  required name="recipeTotalTime" type="number" placeholder="Enter Recipe Total Time" value="{{recipe.totalTime}}"><p class="m-1">Mins</p>
+            </div>
+            <div class="mb-3">
+                <div class="d-flex flex-col justify-content-between">
+                    <h2>Utensils</h2>
+                    <button class="btn btn-success mb-3" type="button" onclick="addUtensil()">Click to Add Utensil</button>
+                </div>
+                {{#each recipe.utensils}}
+                <div class="utensil mb-3">
+                    <div class="d-flex">
+                        <label class="col-2"  for="utensilName{{addOne @index}}">Utensil {{addOne @index}}: </label>
+                        <input class="form-control" id="utensilName{{addOne @index}}" required name="utensilName" type="text" value="{{this.utensilName}}" placeholder="Enter Utensil Name"><div class="col-1"></div>
+                        <label class="col-1" for="utensilQuantity{{addOne @index}}">Quantity: </label>
+                        <input class="form-control" id="utensilQuantity{{addOne @index}}" required name="utensilQuantity"  value="{{this.utensilQuantity}}" type="number" placeholder="Enter Quantity Here">
+                    </div>
+                </div>
+                {{/each}}
+                <div id="addUtensil"></div>
+
+                <div class="d-flex flex-row justify-content-between">
+                    <h2>Ingredients</h2>
+                    <button class="btn btn-success mb-3" type="button" onclick="addIngredients()">Click to Add Ingredients</button>
+                </div>
+                {{#each recipe.ingredients}}
+                    <div class="section mb-3">
+                        <div class="d-flex">
+                            <label class="col-2" for="ingredientsName{{addOne @index}}">Ingredient {{addOne @index}}: </label>
+                            <input class="form-control" id="ingredientsName{{addOne @index}}" required name="ingredientsName" value="{{this.ingredientsName}}" type="text" placeholder="Enter Ingredients Name"><div class="col-1"></div>
+                            <label class="col-1" for="ingredientsQuantity{{addOne @index}}">Quantity: </label>
+                            <input class="form-control" id="ingredientsQuantity{{addOne @index}}" required name="ingredientsQuantity" value="{{this.ingredientsQuantity}}" type="number" placeholder="Enter Quantity Here">
+                        </div>
+                    </div>
+                {{/each}}
+                <div id="addIngredients"></div>
+                <div class="d-flex flex-row justify-content-between">
+                    <h2>Steps</h2>
+                    <button class="btn btn-success mb-3" type="button" onclick="addSteps()">Click to Steps</button>
+                </div>
+                {{#each recipe.steps}}
+                    <div class="section mb-3">
+                        <div class="d-flex">
+                            <label class="col-1"  for="step{{addOne @index}}">Step {{addOne @index}}: </label>
+                            <textarea class="form-control" id="step{{addOne @index}}" name="step" type="text" required placeholder="Enter a Step">{{this.step}}</textarea>
+                            <!--        <label class="col-1"  for="picture1">Picture</label>-->
+                            <!--        <input class="form-control" id="picture1" name="picture1" accept="image/*" type="file">-->
+                        </div>
+                    </div>
+                {{/each}}
+                <div id="addSteps"></div>
+                <br>
+                <input type="hidden" name="id" value="{{recipe._id}}">
+                <input class="btn btn-primary" type="submit" value="Save Recipe">
+            </div>
+        </div>
+    </form>
+</div>
